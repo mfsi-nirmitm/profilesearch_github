@@ -6,6 +6,7 @@ import { GithubService } from '../services/github.service';
   templateUrl: './profile.component.html'
 })
 export class ProfileComponent implements OnInit{
+	user[];
 	
 	constructor(private _githubService : GithubService) {}
 	
@@ -15,7 +16,9 @@ export class ProfileComponent implements OnInit{
 	
 	getUser(): void {
 		this._githubService.getUser().subscribe(user => {
-			console.log(user); 
+			//console.log(user);
+			this.user = user;
+		    console.log(this.user);
 		});
 	}
 }
