@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './components/profile.component';
@@ -12,7 +13,8 @@ import { ProfileComponent } from './components/profile.component';
   ],
   imports: [
     BrowserModule,
-	HttpClientModule
+	HttpClientModule,
+	FormsModule
   ],
   providers: [
 	// no need to place any providers due to the `providedIn` flag...

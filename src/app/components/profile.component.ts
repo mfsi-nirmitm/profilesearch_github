@@ -8,12 +8,15 @@ import { GithubService } from '../services/github.service';
 export class ProfileComponent implements OnInit{
 	user:Object;
 	repos:Object;
-	
-	constructor(private _githubService : GithubService) {}
+	username:string;	
+		
+	constructor(private _githubService : GithubService) {
+		this.user = false;
+	}
 	
 	ngOnInit() {
-		this.getUser();
-		this.getRepos();
+//		this.getUser();
+//		this.getRepos();
 	}
 	
 	getUser(): void {
@@ -29,5 +32,12 @@ export class ProfileComponent implements OnInit{
 			this.repos = repos;
 			console.log(this.repos);
 		});
+	}
+	
+	searchUser() {
+		
+		this._githubService.updateUser(this.username);
+		this.getUser();
+		this.getRepos();
 	}
 }
