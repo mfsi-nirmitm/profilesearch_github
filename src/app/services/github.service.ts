@@ -24,4 +24,8 @@ export class GithubService {
 		//.map(res => res.json());
 	}
 	
+	getRepos() {
+		return this._http.get<any>('http://api.github.com/users/'+this.username+'/repos');
+	}
+	
 } 
